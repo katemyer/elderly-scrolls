@@ -9,3 +9,5 @@ class CardContainer extends React.Component {
 }
 
 export default CardContainer;
+
+//refactor to move some of the logic from search banner in here

@@ -71,15 +71,15 @@ class SearchBanner extends React.Component {
         return (
             <div>
                 <div className='searchBanner'>
-                <div className='bannerTitle'>
-                    ELDER SCROLLS
-                </div>
+                    <div className='bannerTitle'>
+                        ELDER SCROLLS
+                    </div>
 
-                <div className='searchBar'>
-                    <input className="searchBarTextField" id="searchBarTextField" type="input"></input>
-                    <button className="searchBarButton" id="searchBarButton" onClick={this.handleOnClick}>Search</button> 
+                    <div className='searchBar'>
+                        <input className="searchBarTextField" id="searchBarTextField" type="input"></input>
+                        <button className="searchBarButton" id="searchBarButton" onClick={this.handleOnClick}>Search</button> 
+                    </div>
                 </div>
-            </div>
                 <div>
                     <ul>
                         {cards.map(card => (
@@ -103,3 +103,7 @@ class SearchBanner extends React.Component {
 } // end class
 
 export default SearchBanner;
+
+//to do
+    //display cards in a proper way with css
+    //currently a list, use a grid
