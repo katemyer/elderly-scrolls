@@ -3,6 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './SearchBanner.css';
 import axios from 'axios';
+import Card from '../Card/Card';
 
 class SearchBanner extends React.Component {
     constructor(props) {
@@ -12,6 +13,7 @@ class SearchBanner extends React.Component {
           isLoaded: true,
           cards: []
         };
+        this.handleOnClick = this.handleOnClick.bind(this);
       }
       
     // componentDidMount() {
@@ -31,12 +33,7 @@ class SearchBanner extends React.Component {
             const cardResults = response.data.cards;
             //create matchedCards = []
             // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
-            const matchedCards = cardResults.filter((card) => { 
-                let str = card.name.toLowerCase();
-                return str.search(userSearchValue) != -1 } 
-                );
-            console.log("match cards:", matchedCards);
-            //loop thru cards
+              //loop thru cards
                 //check if userSearchValue == card.name
                 //true: push to matchedCards []
                 //false: skips
@@ -46,6 +43,14 @@ class SearchBanner extends React.Component {
             //     let str = card.name.toLowerCase();
             //     return str.search(userSearchValue) != -1
             // }
+            const matchedCards = cardResults.filter((card) => { 
+                let str = card.name.toLowerCase();
+                return str.search(userSearchValue) != -1 }
+                );
+            console.log("match cards:", matchedCards);
+            //https://reactjs.org/docs/state-and-lifecycle.html
+            this.setState({cards: matchedCards});
+            console.log("this.setState", this.setState);
             }).catch(function (error) {
                 if(error.response){
                     alert(error.response.status + ":" +error.response.statusText + ":"+ error.response.data )
@@ -79,7 +84,14 @@ class SearchBanner extends React.Component {
                     <ul>
                         {cards.map(card => (
                             <li key={card.name}>
-                            name : {card.name} rarity : {card.rarity}
+                            <Card
+                                name={card.name}
+                                rarity={card.rarity}
+                                text={card.text}
+                                setName={card.set.name}
+                                type={card.type}
+                                imageUrl={card.imageUrl}
+                            />
                             </li>
                         ))}
                     </ul>
