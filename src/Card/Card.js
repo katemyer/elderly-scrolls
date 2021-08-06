@@ -11,10 +11,10 @@ class Card extends React.Component {
     return (
       <div> 
         <div><img src={this.props.imageUrl}></img></div>
-        <div>name : {this.props.name} </div>
-        <div>rarity : {this.props.rarity} </div>
-        <div>text : {this.props.text} </div>
-        <div>setName : {this.props.setName}</div>
+        <div className='cardName'>{this.props.name} </div>
+        <div className='cardRarity'>{this.props.rarity} </div>
+        <div className='cardText'>{this.props.text} </div>
+        <div className='cardSetName'>{this.props.setName}</div>
       </div>)
   }
 }

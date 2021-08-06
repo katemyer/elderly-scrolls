@@ -1,0 +1,21 @@
+.cardName {
+    font-family: "Gill Sans", sans-serif;
+    color: black;
+    font-weight: bold;
+}
+
+.cardRarity {
+    font-family: "Andale Mono", monospace;
+    color: darkcyan;
+}
+
+.cardText {
+    font-family: American Typewriter, serif;
+    font-size: 15px;
+    color:rgb(89, 15, 119);
+}
+
+.cardSetName {
+    font-family: "Optima", sans-serif;
+    color: gray;
+}

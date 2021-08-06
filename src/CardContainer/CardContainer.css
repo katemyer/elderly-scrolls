@@ -7,7 +7,7 @@
     padding-left: 30px;
     padding-right: 30px;
     padding-top: 15px;
-    font-family: fantasy;
+    font-family: "Luminari", fantasy;
     font-size: 1.25rem;
     font-size: 40px;
     letter-spacing: 0.0075em;
@@ -23,5 +23,5 @@
 }
 
 .scrollResults {
-    background-color: red;
+    background-color: beige;
 }
