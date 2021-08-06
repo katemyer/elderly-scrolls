@@ -9,14 +9,19 @@
     padding-top: 15px;
     font-family: fantasy;
     font-size: 1.25rem;
-    font-size: 30px;
+    font-size: 40px;
     letter-spacing: 0.0075em;
 }
 
-.bannerTitle {
-
+.searchBarTextField {
+    background-color: lightblue;
 }
 
-.searchBar {
+.searchBarButton {
+    font-family: cursive;
+    font-weight: 600;
+}
 
+.scrollResults {
+    background-color: red;
 }

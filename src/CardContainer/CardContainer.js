@@ -21,14 +21,19 @@ class CardContainer extends React.Component {
           // initialize to true so infinite scroll can scroll
           hasMore: true,
         };
-
-
+        // initialize class variables to use throughout component
+        // setting to null to indicate empty state
         this.userSearchValue = null;
+        // setting to 1 to start on page 1
         this.page = 1;
+        // setting as empty string so infinity scroll does not show anything
         this.loadingMessage = "";
+        // .bind helps to attach to this : https://reactjs.org/docs/faq-functions.html#how-do-i-bind-a-function-to-a-component-instance
+        // define function, use function, and don't forget to bind it like below
         this.handleOnClick = this.handleOnClick.bind(this);
+        // react state not updating bc of async call, create another fx as prop to call back on  
+        this.callBackOnClick = this.callBackOnClick.bind(this);
         this.getCards =  this.getCards.bind(this);
-        this.myFunction = this.myFunction.bind(this);
         this.cards = [];
       }
       
@@ -37,8 +42,11 @@ class CardContainer extends React.Component {
     }
 
     getCards() {
+        // setting page size per reqs
         const PAGE_SIZE = 20 ;
+        // initialize dynamic page number and saving into variable page
         let page = this.page;
+        // saving cards array to variable cards
         const cards = this.cards;
         console.log('what is the infinite scroll library doing? ', page);
         axios.get(`https://api.elderscrollslegends.io/v1/cards?pageSize=${PAGE_SIZE}&page=${page}&name=${this.userSearchValue}`)
@@ -65,7 +73,7 @@ class CardContainer extends React.Component {
             })  
     }
 
-    myFunction() {
+    callBackOnClick() {
         this.cards = [];
         const userSearchValue = document.getElementById('searchBarTextField').value.toLowerCase();
         // this.setState({userSearchValue: userSearchValue});
@@ -99,7 +107,9 @@ class CardContainer extends React.Component {
     handleOnClick() {
         //clear out search results before interacting with API: reset page + reset cards
         this.page = 1;
-        this.setState({cards: [], hasMore: true}, this.myFunction);
+        // when react state are not updating 
+        // https://stackoverflow.com/questions/38558200/react-setstate-not-updating-immediately
+        this.setState({cards: [], hasMore: true}, this.callBackOnClick);
     }
   render() {
     const { error, isLoaded, cards } = this.state;
@@ -111,7 +121,7 @@ class CardContainer extends React.Component {
         return (
             <div>
                 <div className='cardContainer'>
-                    <div className='bannerTitle'>
+                    <div>
                         ELDER SCROLLS
                     </div>
 
@@ -130,6 +140,7 @@ class CardContainer extends React.Component {
                             <b>Yay! You have seen it all</b>
                         </p>
                         }
+                    className='scrollResults'
                 >
                     {cards.map(card => (
                         <Card
