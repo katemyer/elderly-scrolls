@@ -5,15 +5,24 @@ import axios from 'axios';
 import Card from '../Card/Card';
 import InfiniteScroll from 'react-infinite-scroll-component';
 
+
+// Class name CardContainer
 class CardContainer extends React.Component {
+    // constructor to initialize the class object
     constructor(props) {
         super(props);
+        // define state variables, when states change it re-render the component
         this.state = {
           error: null,
           isLoaded: true,
+          // initialize the state variables
+          // initialize cards to empty array, so it doesn't display any cards
           cards: [],
+          // initialize to true so infinite scroll can scroll
           hasMore: true,
         };
+
+
         this.userSearchValue = null;
         this.page = 1;
         this.loadingMessage = "";
@@ -24,8 +33,7 @@ class CardContainer extends React.Component {
       }
       
     componentDidMount() {
-        console.log("component did mount")
-        // this.getCards();
+ 
     }
 
     getCards() {
