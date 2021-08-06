@@ -53,14 +53,12 @@ class CardContainer extends React.Component {
             .then((response)=> {
             // console.log("hi" +JSON.stringify(response));
             const cardResults = response.data.cards;
-            // console.log('card results', cardResults);
             //logic for when hasMore becomes false to stop scroll
             //if cardResults == page_size, scroll
             if(cardResults.length < PAGE_SIZE ) {
                 // block of code to be executed if the condition is true
                 this.setState({hasMore: false}); 
               }
-            //else cardResults < page_size, stop scroll
             this.setState({cards: cards.concat(cardResults)});
             this.cards = cards.concat(cardResults);
             this.page = page + 1; // todo: update the page #
@@ -76,30 +74,7 @@ class CardContainer extends React.Component {
     callBackOnClick() {
         this.cards = [];
         const userSearchValue = document.getElementById('searchBarTextField').value.toLowerCase();
-        // this.setState({userSearchValue: userSearchValue});
-        // this.setState((state, props) => ({
-        //     userSearchValue: userSearchValue
-        //   }));
         this.userSearchValue = userSearchValue;
-        console.log("User Search Value:", userSearchValue);
-        // axios.get(`https://api.elderscrollslegends.io/v1/cards?pageSize=${PAGE_SIZE}&page=${page}&name=${userSearchValue}`)
-        //     .then((response)=> {
-        //     console.log("hi" +JSON.stringify(response));
-        //     const cardResults = response.data.cards;
-        //     const matchedCards = cardResults.filter((card) => { 
-        //         let str = card.name.toLowerCase();
-        //         return str.search(userSearchValue) !== -1 }
-        //         );
-        //     console.log("match cards:", matchedCards);
-        //     //https://reactjs.org/docs/state-and-lifecycle.html
-        //     this.setState({cards: matchedCards});
-        //     console.log("this.setState", this.setState);
-        //     }).catch(function (error) {
-        //         if(error.response){
-        //             alert(error.response.status + ":" +error.response.statusText + ":"+ error.response.data )
-        //         }
-        //         console.log("Error" + error);
-            // })  
         this.loadingMessage = "Hold on, getting more cards...";
         this.getCards();
     }
@@ -161,7 +136,3 @@ class CardContainer extends React.Component {
 } // end class
 
 export default CardContainer;
-
-//to do
-    //display cards in a proper way with css
-    //currently a list, use a grid

@@ -14,57 +14,22 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `yarn test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Overview
 
-### `yarn build`
+Using the Axios library for my API call(https://www.npmjs.com/package/axios). Imported the Infinity Scroll component (https://www.npmjs.com/package/react-infinite-scroll-component). The banner header and input+search button use flex while the display of the cards is implemented within the Infinity Scroll. The search functionality, after the user enters "dragon" and clicks search, a call is made to the API which gets all the cards and filters based on the search term to display their desired results. A little message shows when the cards are loading and when the user reaches the end of the scroll, another little message pops up to inform them that they have reached the end of their results. When the user goes to make another search, the cards are cleared out and the process ensues again.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Refactoring Thoughts
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Cards seems like a solid component so I would actually leave it as is. But, within the CardContainer, I would break out the banner with the header, API call, and search functionality into its own components. For the banner with the header, we could potentially make use of this if we were to have different sections for the user to visit rather than the single page. They might want to have a favorites tab to display all their marked favorite cards which ideally would keep the same UI look in the banner. For the API call, a call is made that retrieves all the cards, adding them to a card array, then a filter is to capture the cards that match the user's search entry. I think this may be expensive in the long run if we have a trillion cards so I would implement 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### UI Design
 
-### `yarn eject`
+I made the decision to not grid the results because it would impact the way the Infinity Scroll works. I have some commented out code that does show start of grid implementation that I would want to implement in the future. I am pleased with being able to fix the image sizing and apply styling to the text of the card to keep it within the width of the card. Overall, I feel proud of the Infinity Scroll and how it functions while loading more items as well as the end display message when the scrolling is actually done. The overall UI appearance is appealing, minimal, and at a high level, does what the user would expect. 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Future Work
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+I would implement tests and the refactoring that I mentioned above. Overall, aside from testing, I think the architecture is quite reasonable while having the promise of breaking it down into more components to leave room for future functionality improvements. I would also make it more useful for the user by adding a "favorites", "delete", and "buy" functionality if we wanted to turn this into an e-commerce site. I would also display pagination in the form of "1, 2, 3, ... next". I would make it more UI cool like add a fire breathing dragon as the background. I would model the app after Yelp's functionality of creating lists to which you can save certain favorite-d cards to and lastly, I would deploy this app. 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

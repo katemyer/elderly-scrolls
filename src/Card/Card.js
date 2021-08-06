@@ -25,9 +25,3 @@ Card.propTypes = {
 }
 
 export default Card;
-
-//to do
-  //format html correctly with proper divs
-  //remember to use flex box
-  //apply css to the divs
-  //get the actual image, use img tag
