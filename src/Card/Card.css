@@ -13,6 +13,11 @@
     font-family: American Typewriter, serif;
     font-size: 15px;
     color:rgb(89, 15, 119);
+    inline-size: 200px;
+    text-align: center;
+    margin: auto;
+    width: 32%;
+    padding: 10px;
 }
 
 .cardSetName {

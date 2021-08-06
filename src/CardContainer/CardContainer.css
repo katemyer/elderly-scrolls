@@ -24,7 +24,9 @@
 
 .scrollResults {
     background-color: beige;
-    /* display: grid;
+    /* display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px; */
 }

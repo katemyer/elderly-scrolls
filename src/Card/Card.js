@@ -10,7 +10,7 @@ class Card extends React.Component {
   render() {
     return (
       <div> 
-        <div><img src={this.props.imageUrl}></img></div>
+        <div><img src={this.props.imageUrl} alt="wizard" width="400" height="600"></img></div>
         <div className='cardName'>{this.props.name} </div>
         <div className='cardRarity'>{this.props.rarity} </div>
         <div className='cardText'>{this.props.text} </div>
